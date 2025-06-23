@@ -2,8 +2,8 @@
 :root {
   --primary: #18c390;
   --secondary: #a14730;
-  --dark: #2a2a2a;
-  --light: #f8f9fa;
+  --dark: #2c3e50;
+  --light: #ecf0f1;
   --overlay: rgba(0, 0, 0, 0.6);
 }
 
@@ -19,39 +19,17 @@ body {
   color: var(--dark);
 }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.section {
-  padding: 80px 0;
-}
-
 h1, h2, h3 {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   line-height: 1.2;
 }
 
-h1 {
-  font-size: 3rem;
-}
-
-h2 {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 50px;
-  color: var(--dark);
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
 p {
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
+}
+
+section {
+  padding: 4rem 1rem;
 }
 
 /* Hero Section */
@@ -64,13 +42,10 @@ p {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
 }
 
 .hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -79,8 +54,6 @@ p {
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background-color: var(--overlay);
@@ -90,38 +63,62 @@ p {
 .hero-content {
   position: relative;
   z-index: 3;
+  color: white;
   max-width: 800px;
-  padding: 0 20px;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .subheading {
   font-size: 1.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
-/* Timeline Section */
+/* Timeline */
+.our-story {
+  background-color: var(--light);
+}
+
 .timeline {
   position: relative;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding-top: 2rem;
 }
 
-.timeline::before {
+.timeline::after {
   content: '';
   position: absolute;
-  width: 2px;
+  width: 6px;
   background-color: var(--primary);
   top: 0;
   bottom: 0;
   left: 50%;
-  margin-left: -1px;
+  margin-left: -3px;
 }
 
 .timeline-item {
   padding: 10px 40px;
   position: relative;
   width: 50%;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid var(--primary);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .timeline-item:nth-child(odd) {
@@ -132,116 +129,132 @@ p {
   left: 50%;
 }
 
-.timeline-year {
-  padding: 10px 15px;
-  background-color: var(--primary);
-  color: white;
-  border-radius: 5px;
-  position: absolute;
-  top: 0;
-  font-weight: bold;
-}
-
-.timeline-item:nth-child(odd) .timeline-year {
-  right: -80px;
-}
-
-.timeline-item:nth-child(even) .timeline-year {
-  left: -80px;
+.timeline-item:nth-child(even)::after {
+  left: -16px;
 }
 
 .timeline-content {
-  padding: 20px;
+  padding: 20px 30px;
   background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Team Section */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .team-member {
   text-align: center;
-  padding: 30px 20px;
+  padding: 2rem;
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.team-member:hover {
-  transform: translateY(-10px);
-}
-
-.team-photo {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 20px;
+.member-photo {
+  font-size: 5rem;
   color: var(--primary);
-}
-
-.team-photo i {
-  font-size: 150px;
+  margin-bottom: 1rem;
 }
 
 .title {
   color: var(--secondary);
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
-/* Values Section */
+/* Mission & Values */
+.mission-values {
+  background-color: var(--light);
+}
+
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .value-item {
   text-align: center;
-  padding: 30px 20px;
+  padding: 2rem 1rem;
 }
 
 .value-item i {
   font-size: 3rem;
   color: var(--primary);
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
-/* CTA Section */
-.cta-section {
-  background-color: var(--primary);
-  color: white;
+/* CTA Banner */
+.cta-banner {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 80px 0;
+  color: white;
+  overflow: hidden;
 }
 
+.cta-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
 .cta-button {
   display: inline-block;
-  background-color: white;
-  color: var(--primary);
-  padding: 15px 30px;
+  background-color: var(--primary);
+  color: white;
+  padding: 0.8rem 2rem;
   border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
-  margin-top: 20px;
   transition: all 0.3s ease;
+  border: 2px solid var(--primary);
 }
 
 .cta-button:hover {
-  background-color: var(--dark);
+  background-color: transparent;
   color: white;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .timeline::before {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .subheading {
+    font-size: 1.2rem;
+  }
+  
+  .timeline::after {
     left: 31px;
   }
   
@@ -255,35 +268,11 @@ p {
     left: 0;
   }
   
-  .timeline-year {
-    left: 15px !important;
-    right: auto !important;
+  .timeline-item::after {
+    left: 15px;
   }
-
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .section {
-    padding: 60px 0;
-  }
-
-  .hero {
-    height: 70vh;
-    min-height: 400px;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .subheading {
-    font-size: 1.2rem;
+  
+  .timeline-item:nth-child(even)::after {
+    left: 15px;
   }
 }
