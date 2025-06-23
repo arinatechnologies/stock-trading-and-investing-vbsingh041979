@@ -1,24 +1,38 @@
-// Service card interaction
+// Service cards animation on scroll
 document.addEventListener('DOMContentLoaded', function() {
-  // Add click event to all Learn More buttons
-  const learnMoreButtons = document.querySelectorAll('.btn-learn-more');
+  const serviceCards = document.querySelectorAll('.service-card');
   
-  learnMoreButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const serviceTitle = this.closest('.service-card').querySelector('h3').textContent;
-      console.log(`Learn more clicked for: ${serviceTitle}`);
-      // In a real implementation, this would open a modal or navigate to a detailed page
-      alert(`More information about ${serviceTitle} would be displayed here.`);
+  const animateCards = () => {
+    serviceCards.forEach((card, index) => {
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 150 * index);
     });
+  };
+  
+  // Initial state
+  serviceCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   });
   
-  // CTA button click handler
-  const ctaButton = document.querySelector('.btn-cta');
-  if (ctaButton) {
-    ctaButton.addEventListener('click', function() {
-      console.log('CTA button clicked');
-      // In a real implementation, this would open a contact form
-      alert('Contact form would open here.');
+  // Small delay to allow for page load
+  setTimeout(animateCards, 300);
+  
+  // Intersection Observer for scroll animations
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    serviceCards.forEach(card => {
+      observer.observe(card);
     });
   }
 });
